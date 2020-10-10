@@ -173,8 +173,8 @@ struct pci_smbus_controller {
 static struct pci_smbus_controller smbcontrollers[] = {
 	// Intel SMBUS
 	{0x8086, 0x18DF, "Intel CDF",           ich5_get_smb, ich5_read_spd},
-	{0x8086, 0x9DA3, "Intel Cannon Lake",   ich5_get_smb, ich5_read_spd},
-	{0x8086, 0xA323, "Intel Cannon Lake",   ich5_get_smb, ich5_read_spd},
+	{0x8086, 0x9DA3, "Intel Cannon Lake LP",   ich5_get_smb, ich5_read_spd},
+	{0x8086, 0xA323, "Intel Cannon Lake H",   ich5_get_smb, ich5_read_spd},
 	{0x8086, 0x31D4, "Intel GL",            ich5_get_smb, ich5_read_spd},
 	{0x8086, 0xA2A3, "Intel 200/Z370",      ich5_get_smb, ich5_read_spd},
 	{0x8086, 0xA223, "Intel Lewisburg",     ich5_get_smb, ich5_read_spd},
