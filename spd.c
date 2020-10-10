@@ -173,8 +173,8 @@ struct pci_smbus_controller {
 static struct pci_smbus_controller smbcontrollers[] = {
 	// Intel SMBUS
 	{0x8086, 0x18DF, "Intel CDF",           ich5_get_smb, ich5_read_spd},
-	{0x8086, 0x9DA3, "Intel Cannon Lake",   ich5_get_smb, ich5_read_spd},
-	{0x8086, 0xA323, "Intel Cannon Lake",   ich5_get_smb, ich5_read_spd},
+	{0x8086, 0x9DA3, "Intel Cannon Lake LP",   ich5_get_smb, ich5_read_spd},
+	{0x8086, 0xA323, "Intel Cannon Lake H",   ich5_get_smb, ich5_read_spd},
 	{0x8086, 0x31D4, "Intel GL",            ich5_get_smb, ich5_read_spd},
 	{0x8086, 0xA2A3, "Intel 200/Z370",      ich5_get_smb, ich5_read_spd},
 	{0x8086, 0xA223, "Intel Lewisburg",     ich5_get_smb, ich5_read_spd},
@@ -277,7 +277,12 @@ void get_spd_spec(void)
     for (j = 0; j < 8; j++) {
 			if (smbcontrollers[index].read_spd(j) == 0) {	
 				curcol = 1;
-				if(spd_raw[2] == 0x0b){
+				if(spd_raw[2] == 0x0c || spd_raw[2] == 0x0d || spd_raw[2] == 0x0e || spd_raw[2] == 0x10 || spd_raw[2] == 0x11){
+				  // We are here if DDR4 present
+					
+		
+				}
+				if(spd_raw[2] == 0x0b || spd_raw[2] == 0x0f){
 				  // We are here if DDR3 present
 				 
 				  // First print slot#, module capacity
